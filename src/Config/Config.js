@@ -38,11 +38,16 @@
 
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
+import firebase from "firebase/compat/app";
+import "firebase/compat/firestore";
+import "firebase/compat/auth";
+import "firebase/compat/storage";
+
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
 // Your web app's Firebase configuration
-const firebaseConfig = {
+const config = {
   apiKey: "AIzaSyAhU5TE0kqHnc1WyEoydBJ44JkoMhse9CU",
   authDomain: "virtual-patient-simulator-2023.firebaseapp.com",
   projectId: "virtual-patient-simulator-2023",
@@ -51,5 +56,7 @@ const firebaseConfig = {
   appId: "1:160721387702:web:9aeaf99993c80e2e456617",
 };
 
-// Initialize Firebase
-const app = initializeApp(firebaseConfig);
+firebase.initializeApp(config);
+firebase.firestore().settings({ timestampsInSnapshots: true });
+firebase.storage();
+export default firebase;
